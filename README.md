@@ -6,7 +6,7 @@ Prepared for Symfony applications.
 
 ## Install
 
-    composer require softspring/docker-nginx-php-appengine-dev --no-scripts
+    composer require softspring/docker-php72-appengine-dev no-scripts
     
 ## Configure docker-compose.yaml
 
@@ -16,7 +16,7 @@ Prepared for Symfony applications.
       nginx:
         container_name: container_name
         build:
-            context: vendor/softspring/docker-nginx-php-appengine-dev
+            context: vendor/softspring/docker-php72-appengine-dev
             args:
               USER_NAME: <USERNAME>
               UID: <UID>

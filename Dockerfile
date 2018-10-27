@@ -22,4 +22,4 @@ RUN chmod g+w -R /opt/composer
 
 ENTRYPOINT ["/entrypoint.sh"]
 
-CMD ["/bin/bash", "/app/vendor/softspring/docker-nginx-php-appengine-dev/startup.sh"]
+CMD ["/bin/bash", "/app/vendor/softspring/docker-php72-appengine-dev/startup.sh"]

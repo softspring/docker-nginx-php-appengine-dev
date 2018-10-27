@@ -30,10 +30,8 @@ Provides Xdebug and is configured to execute commands as local user to prevent p
           DOCUMENT_ROOT: "/app/public"
           SKIP_LOCKDOWN_DOCUMENT_ROOT: "true"
           COMPOSER_FLAGS: "--no-scripts --prefer-dist"
-          COMPOSER_HOME: /home/<USERNAME>/.composer
         volumes:
          - .:/app
-         - ~/.composer:/home/<USERNAME>/.composer
 
 ## Setup a startup script
 
@@ -55,3 +53,14 @@ Configure STARTUP_SCRIPT environment variable to run it.
         environment:
           STARTUP_SCRIPT: /app/startup_script.sh
 
+
+## Share composer cache
+
+    version: '3'
+    
+    services:
+      php:
+        environment:
+          COMPOSER_HOME: /home/<USERNAME>/.composer
+        volumes:
+         - ~/.composer:/home/<USERNAME>/.composer

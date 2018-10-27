@@ -6,7 +6,7 @@ Provides Xdebug and is configured to execute commands as local user to prevent p
 
 ## Install
 
-    composer require softspring/docker-php72-appengine-dev no-scripts
+    composer require softspring/docker-php72-appengine-dev --no-scripts --dev
     
 ## Configure docker-compose.yaml
 

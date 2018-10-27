@@ -18,5 +18,10 @@ fi
 
 # custom startup-script.sh
 
+if [ "$STARTUP_SCRIPT" ]
+then
+    bash $STARTUP_SCRIPT
+fi
+
 # -E preserves environment variables
 sudo -E /usr/bin/supervisord -c /etc/supervisor/supervisord.conf

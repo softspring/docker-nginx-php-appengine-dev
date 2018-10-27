@@ -1,8 +1,8 @@
-# Docker AppEngine PHP image for developing
+# Docker PHP 7.2 image for developing AppEngine based
 
-Docker AppEngine Nginx+PHP 7.2 image for developing with sudo and Xdebug.
+This image is prepared for developing PHP 7.2 applications based on AppEngine image.
 
-Prepared for Symfony applications.
+Provides Xdebug and is configured to execute commands as local user to prevent permission problems.
 
 ## Install
 
@@ -13,7 +13,7 @@ Prepared for Symfony applications.
     version: '3'
     
     services:
-      nginx:
+      php:
         container_name: container_name
         build:
             context: vendor/softspring/docker-php72-appengine-dev
@@ -34,4 +34,24 @@ Prepared for Symfony applications.
         volumes:
          - .:/app
          - ~/.composer:/home/<USERNAME>/.composer
+
+## Setup a startup script
+
+Create a startup script with your required commands:
+
+    # startup_script.sh
+    #!/bin/bash
+    
+    php bin/console cache:clear --env=dev
+    php bin/console doctrine:migrations:migrate -n --env=dev
+    
+
+Configure STARTUP_SCRIPT environment variable to run it.
+    
+    version: '3'
+    
+    services:
+      php:
+        environment:
+          STARTUP_SCRIPT: /app/startup_script.sh
 

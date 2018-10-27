@@ -1,0 +1,6 @@
+{
+    "name": "softspring/docker-nginx-php-appengine-dev",
+    "type": "library",
+    "description": "Docker AppEngine Nginx+PHP image for developing with sudo and Xdebug",
+    "license": "MIT"
+}
